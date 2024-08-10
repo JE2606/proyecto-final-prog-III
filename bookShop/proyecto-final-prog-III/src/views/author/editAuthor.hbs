@@ -1,0 +1,20 @@
+<div style="height: 50px;"></div>
+<div class="container mt-5">
+    <h1 class="text-center mb-4">Edit Author</h1>
+    <hr>
+    <form action="/authors/edit/{{author.id}}" method="POST" class="border rounded p-4 shadow-sm">
+        <div class="form-group">
+            <label for="name">Name</label>
+            <input type="text" class="form-control" id="name" name="name" required value="{{author.name}}">
+        </div>
+        <div class="form-group">
+            <label for="email">Email</label>
+            <input type="email" class="form-control" id="email" name="email" required value="{{author.email}}">
+        </div>
+        <div class="text-right">
+            <a href="/authors" class="btn btn-secondary">Cancel</a>
+            <button type="submit" class="btn btn-danger">Update</button>
+        </div>
+    </form>
+</div>
+<div style="height: 50px;"></div>

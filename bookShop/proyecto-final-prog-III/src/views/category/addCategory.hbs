@@ -1,0 +1,20 @@
+<div style="height: 50px;"></div>
+<div class="container mt-5">
+    <h1 class="text-center mb-4">Add Category</h1>
+    <hr>
+    <form action="/categories/add" method="POST" class="border rounded p-4 shadow-sm">
+        <div class="form-group">
+            <label for="name">Name</label>
+            <input type="text" class="form-control" id="name" name="name" required placeholder="Fiction">
+        </div>
+        <div class="form-group">
+            <label for="description">Description</label>
+            <textarea class="form-control" id="description" name="description" rows="3" required placeholder="Fiction description"></textarea>
+        </div>
+        <div class="text-right">
+            <a href="/categories" class="btn btn-secondary">Cancel</a>
+            <button type="submit" class="btn btn-primary">Add Category</button>
+        </div>
+    </form>
+</div>
+<div style="height: 50px;"></div>

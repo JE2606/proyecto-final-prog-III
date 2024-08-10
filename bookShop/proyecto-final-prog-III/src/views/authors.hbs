@@ -1,0 +1,56 @@
+<div style="height: 50px;"></div>
+<div class="container mt-5">
+    <h1 class="text-center mb-4">Authors Management</h1>
+    <hr>
+    <div class="text-right mb-3">
+        <a href="/authors/add" class="btn btn-outline-secondary mb-5">
+            <i class="fas fa-plus-circle"></i> Add
+        </a>
+    </div>
+    <div class="row">
+        {{#each authors}}
+        <div class="col-md-4">
+            <div class="card mb-4">
+                <div class="card-body">
+                    <h5 class="card-title">{{this.name}}</h5>
+                    <p class="card-text"><strong>Email:</strong> {{this.email}}</p>
+                    <p class="card-text"><strong>Books:</strong> {{this.books.length}}</p>
+                    <div class="d-flex justify-content-between">
+                        <a href="/authors/edit/{{this.id}}" class="btn btn-outline-info">
+                            <i class="fas fa-edit"></i> Edit
+                        </a>
+                        <button type="button" class="btn btn-outline-danger" data-toggle="modal"
+                            data-target="#deleteModal{{this.id}}">
+                            <i class="fas fa-trash-alt"></i> Delete
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Modal -->
+        <div class="modal fade" id="deleteModal{{this.id}}" tabindex="-1" role="dialog"
+            aria-labelledby="deleteModalLabel{{this.id}}" aria-hidden="true">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="deleteModalLabel{{this.id}}">Delete Author</h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <div class="modal-body">
+                        Are you sure you want to delete the author "{{this.name}}"?
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
+                        <form action="/authors/delete/{{this.id}}" method="POST">
+                            <button type="submit" class="btn btn-danger">Delete</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+        {{/each}}
+    </div>
+</div>
+<div style="height: 50px;"></div>

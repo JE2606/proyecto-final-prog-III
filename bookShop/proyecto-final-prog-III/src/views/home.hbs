@@ -1,0 +1,47 @@
+<div class="image-background">
+    <img src="https://w0.peakpx.com/wallpaper/975/852/HD-wallpaper-books-reading-books-background-with-books-bookshelf-thumbnail.jpg"
+        alt="BOOKS BACKGROUN" class="background-image">
+    <div class="image-overlay">
+        <h1>BOOKAPP</h1>
+    </div>
+</div>
+<div class="container mt-5">
+    <h1 class="text-end mb-4">All Books</h1>
+    <hr>
+    <form action="/" method="GET" class="mb-4">
+        <div class="form-group">
+            <label for="categoryFilter">Filter by Category:</label>
+            <select id="categoryFilter" name="categories[]" class="form-control" multiple>
+                {{#each categories}}
+                <option value="{{this.id}}">{{this.name}}</option>
+                {{/each}}
+            </select>
+        </div>
+        <button type="submit" class="btn btn-primary">Apply Filters</button>
+    </form>
+
+    <!-- Búsqueda por Título -->
+    <form class="form-inline my-2 my-lg-0" method="GET" action="/">
+        <input class="form-control mr-sm-2" type="search" placeholder="Search by Title" aria-label="Search"
+            name="search">
+        <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+    </form>
+
+    <div class="row mt-4">
+        {{#each books}}
+        <div class="col-md-4 mb-4">
+            <div class="card shadow-sm">
+                <img src="{{this.image}}" class="card-img-top" alt="{{this.title}}">
+                <div class="card-body">
+                    <h5 class="card-title">{{this.title}}</h5>
+                    <p class="card-text">Publication Year: {{this.publicationYear}}</p>
+                    <p class="card-text">Category: {{this.category.name}}</p>
+                    <p class="card-text">Author: {{this.author.name}}</p>
+                    <p class="card-text">Publisher: {{this.publisher.name}}</p>
+                    <a href="/books/{{this.id}}" class="btn btn-primary btn-block">Details</a>
+                </div>
+            </div>
+        </div>
+        {{/each}}
+    </div>
+</div>
